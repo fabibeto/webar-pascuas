@@ -3,38 +3,34 @@
 <head>
 
 <meta charset="utf-8">
-<title>AR Pascua</title>
+<title>Dulces Pascuas AR</title>
 
 <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.0/dist/mindar-image-aframe.prod.js"></script>
 
-<!-- <script defer src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.0/dist/mindar-image-aframe.prod.js"></script> -->
+<style>
+body{
+margin:0;
+overflow:hidden;
+}
+</style>
 
 </head>
 
-<!-- <body> -->
-<body style="margin:0; overflow:hidden;"></body>
-
-<script>
-console.log("MindAR:", window.MINDAR);
-</script>
+<body>
 
 <a-scene
 mindar-image="imageTargetSrc: targets.mind"
 color-space="sRGB"
 embedded
 vr-mode-ui="enabled: false"
-device-orientation-permission-ui="enabled: true"
-ui-loading="enabled: true"
-ui-scanning="enabled: true"
-ui-error="enabled: true">
+device-orientation-permission-ui="enabled: true">
 
 <a-assets>
 
 <a-asset-item
 id="conejo"
-src="./conejo.glb">
+src="conejo.glb">
 </a-asset-item>
 
 </a-assets>
@@ -47,12 +43,18 @@ src="./conejo.glb">
 <a-entity mindar-image-target="targetIndex: 0">
 
 <a-gltf-model
-src="./conejo.glb"
-scale="0.4 0.4 0.4"
+src="#conejo"
+scale="0.5 0.5 0.5"
 position="0 0 0">
 </a-gltf-model>
 
-<a-box color="yellow"></a-box>
+<a-text
+value="Felices Pascuas!"
+color="#ff69b4"
+align="center"
+position="0 0.7 0"
+scale="1 1 1">
+</a-text>
 
 </a-entity>
 
