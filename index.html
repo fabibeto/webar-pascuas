@@ -1,68 +1,27 @@
-<!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+  </head>
+  <body>
+    <a-scene 
+      mindar-image="imageTargetSrc: marcadorweb.mind;" 
+      color-space="sRGB" 
+      renderer="colorManagement: true, physicallyCorrectLights" 
+      vr-mode-ui="enabled: false" 
+      device-orientation-permission-ui="enabled: false">
+      
+      <a-assets>
+        <a-asset-item id="modeloGLB" src="./tomb_raider_laracroft.glb"></a-asset-item>
+      </a-assets>
 
-<meta charset="utf-8">
-<title>Dulces Pascuas AR</title>
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.0/dist/mindar-image-aframe.prod.js"></script>
-
-<style>
-body{
-margin:0;
-overflow:hidden;
-}
-</style>
-
-</head>
-
-<body>
-
-<a-scene
-mindar-image="imageTargetSrc: targets.mind"
-color-space="sRGB"
-embedded
-vr-mode-ui="enabled: false"
-device-orientation-permission-ui="enabled: true"
-ui-loading="enabled: true"
-ui-scanning="enabled: true"
-ui-error="enabled: true">
-
-<a-assets>
-
-<a-asset-item
-id="conejo"
-src="conejo.glb">
-</a-asset-item>
-
-</a-assets>
-
-<a-light type="ambient" intensity="1"></a-light>
-<a-light type="directional" position="1 1 1"></a-light>
-
-<a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
-<a-entity mindar-image-target="targetIndex: 0">
-
-<a-gltf-model
-src="#conejo"
-scale="0.5 0.5 0.5"
-position="0 0 0">
-</a-gltf-model>
-
-<a-text
-value="Felices Pascuas!"
-color="#ff69b4"
-align="center"
-anchor="center"
-position="0 0.7 0"
-scale="1 1 1">
-</a-text>
-
-</a-entity>
-
-</a-scene>
-
-</body>
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-gltf-model rotation="0 0 0" position="0 0 0" scale="1.5 1.5 1.5" src="#modeloGLB"></a-gltf-model>
+      </a-entity>
+      
+    </a-scene>
+  </body>
 </html>
